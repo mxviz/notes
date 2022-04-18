@@ -52,3 +52,17 @@ class MailController extends Controller
     ...
 }
 ```
+
+В последствии мы можем создать другой сервис (напр. AnotherMailerService) и зарегистрировать его в сервис-провайдере, либо использовать условия, при которых будут регистрироваться различные сервисы.
+
+### Можно создавать сервисы без контрактов, тогда в сервис-провайдере регистрация будет такой:
+```php
+use \App\Services\Mailer\SendPulseService;
+
+public function register()
+{
+    $this->app->bind(SendPulseService::class, function() {
+        return new SendPulseService();
+    });
+}
+```
