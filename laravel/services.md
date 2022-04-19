@@ -77,7 +77,7 @@ class SomeController extends Controller
 
     public function __construct(SomeService $service)
     {
-        $this->service = $mailerService;
+        $this->service = $service;
     }
 
     ...
