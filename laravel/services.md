@@ -66,3 +66,20 @@ public function register()
     });
 }
 ```
+
+### Также можно не создавать сервис-провайдер, а напрямую внедрять сервис в контроллер
+```php
+use App\Services\SomeService;
+
+class SomeController extends Controller
+{
+    protected object $service;
+
+    public function __construct(SomeService $service)
+    {
+        $this->service = $mailerService;
+    }
+
+    ...
+}
+```
